@@ -98,12 +98,18 @@
             <tr>
               <th>Actividad</th>
               <th>Horario</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let act of actividades">
               <td>{{ act.actividad }}</td>
               <td>{{ act.horario }}</td>
+              <td>
+                <button class="btn-perfil danger" (click)="anularActividad(act.id)">
+                  Anular
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>

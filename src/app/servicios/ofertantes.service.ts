@@ -116,4 +116,16 @@ export class OfertantesService {
     });
     return this.http.post<any[]>(this.url, param);
   }
+
+  // ==========================
+  // ANULAR RESERVA DE ACTIVIDAD
+  // ==========================
+  anularInscripcion(usuario_id: number, actividad_id: number) {
+    const param = JSON.stringify({
+      accion: 'anularInscripcion',
+      usuario_id,
+      actividad_id,
+    });
+    return this.http.post<{ result: string }>(this.url, param);
+  }
 }

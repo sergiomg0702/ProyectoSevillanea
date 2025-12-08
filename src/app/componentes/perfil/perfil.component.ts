@@ -89,28 +89,38 @@ export class PerfilComponent implements OnInit {
   verActividades() {
     console.log('Id del user: ' + this.usuarioId);
     if (!this.usuarioId) return;
-  
+
     this.ofertantesService.actividadesUsuario(this.usuarioId).subscribe({
-
       next: (res) => {
-
         this.actividades = res;
 
-        console.log("Actividades usuario:", this.actividades);
-
+        console.log('Actividades usuario:', this.actividades);
       },
 
       error: () => {
-
         this.mensaje = 'Error al obtener actividades';
-
       },
-
     });
-
   }
 
- 
+  anularActividad(actividad_id: number) {
+    if (!confirm('¿Deseas anular esta actividad?')) return;
+
+    this.ofertantesService
+      .anularInscripcion(this.usuarioId, actividad_id)
+      .subscribe({
+        next: (res) => {
+          if (res.result === 'OK') {
+            this.actividades = this.actividades.filter(
+              (a) => a.id !== actividad_id
+            );
+          } else {
+            this.mensaje = 'No se pudo anular la actividad';
+          }
+        },
+        error: () => (this.mensaje = 'Error al anular la actividad'),
+      });
+  }
 
   borrarUsuario() {
     if (!confirm('¿Seguro que deseas eliminar tu cuenta?')) return;
