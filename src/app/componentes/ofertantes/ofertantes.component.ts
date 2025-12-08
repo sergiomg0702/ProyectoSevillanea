@@ -92,7 +92,7 @@ export class OfertantesComponent implements OnInit {
             response.includes('SQLSTATE[23000]')
           ) {
             this.mostrarError(
-              'No se puede borrar la actividad seleccionada, puesto que ya está asociada a un consumidor de la comunidad'
+              'No se puede borrar la actividad seleccionada, puesto que ya está asociada a un miembro de la comunidad'
             );
           } else {
             this.mensajeError = '';
