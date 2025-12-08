@@ -1,36 +1,33 @@
-<!-- Barra superior de redes sociales (alineada a la derecha) -->
+<!-- Barra superior -->
 <div class="top-bar-sevillanea" id="topBar">
   <div class="topbar-content">
     <div class="social-icons">
       <a href="https://www.instagram.com/" target="_blank">
-        <img src="assets/imagenes/instagram.png" alt="Instagram" class="icono-red" />
+        <img src="assets/imagenes/instagram.png" class="icono-red" />
         <span>Instagram</span>
       </a>
       <a href="https://www.tiktok.com/es-419/" target="_blank">
-        <img src="assets/imagenes/tiktok.png" alt="TikTok" class="icono-red" />
+        <img src="assets/imagenes/tiktok.png" class="icono-red" />
         <span>TikTok</span>
       </a>
       <a href="https://www.youtube.com/" target="_blank">
-        <img src="assets/imagenes/youtube.png" alt="YouTube" class="icono-red" />
+        <img src="assets/imagenes/youtube.png" class="icono-red" />
         <span>YouTube</span>
       </a>
     </div>
   </div>
 </div>
 
-<!--  Menú blanco que sube y reemplaza al negro -->
+<!-- Navbar -->
 <nav class="navbar" id="navbar">
   <div class="navbar-container">
 
     <a routerLink="/" class="navbar-logo">
-      <img src="assets/imagenes/sevillanea.png" alt="Logotipo Sevillanea" class="logo-izquierda" />
+      <img src="assets/imagenes/sevillanea.png" class="logo-izquierda" />
     </a>
 
-    <!-- MENU HAMBURGUESA(RESPONSIVE EN VERSIÓN MÓVIL PARA QUE NO SE DESAJUSTE LAS OPCIONES DEL MENÚ) -->
     <div class="hamburger" (click)="toggleMenu()" [class.activo]="menuAbierto">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
 
     <ul class="navbar-menu" [class.abierto]="menuAbierto">
@@ -39,19 +36,19 @@
       <li><a routerLink="/consumidores">Comunidad</a></li>
       <li><a routerLink="/contacto">Contacto</a></li>
 
-      <!-- Login / Perfil -->
       <li [class.hidden]="isLoggedIn"><a routerLink="/login">Iniciar sesión</a></li>
+
       <li [class.hidden]="!isLoggedIn">
         <a [routerLink]="['/perfil', usuario?.id]">Tu perfil</a>
       </li>
+
       <li [class.hidden]="isLoggedIn"><a routerLink="/registro">Regístrate</a></li>
     </ul>
 
   </div>
 </nav>
 
-
-<!-- Sección cabecera "TU PERFIL" -->
+<!-- Cabecera -->
 <section class="ofertantes-header">
   <div class="overlay"></div>
   <div class="ofertantes-header-content">
@@ -59,53 +56,26 @@
   </div>
 </section>
 
-
-<!-- CONTENEDOR GENERAL DE MIS ACTIVIDADES -->
-
-
-<div class="perfil-header-espaciado"></div>
-
-
+<!-- Información del usuario -->
 <div class="perfil-wrapper">
+  <div class="perfil-card perfil-datos perfil-info-card">
 
-  <div class="perfil-card">
+    <div class="perfil-encabezado">
+      <div class="perfil-icono">
+        <img src="assets/imagenes/icono.png" alt="Usuario">
+      </div>
 
-    <h2 class="perfil-titulo">Mis Actividades</h2>
-    <div *ngIf="actividades.length > 0; else noActividades">
-      <ul>
-      <li *ngFor="let act of actividades">
-            {{ act.actividad }}
-            {{ act.horario }}
-      </li>
-      </ul>
-    </div>
-    
-    <ng-template #noActividades>
-    <p>No tienes actividades reservadas aún.</p>
-    </ng-template>
-
-  </div>
-
-</div>
-
-<!-- Sección cabecera "TU CUENTA" -->
-
-<!-- esto es para que haya un espacio entre la cabecera y la sección,para que no se vea tan pegado -->
-<div class="perfil-header-espaciado"></div>
-
-<!-- CONTENEDOR GENERAL DEL PERFIL -->
-<div class="perfil-wrapper">
-
-  <div class="perfil-card">
-
-    <h2 class="perfil-titulo">Perfil de {{ usuarioNombre }}</h2>
-
-    <div class="perfil-info">
-      <p><span>Email:</span> {{ usuarioEmail }}</p>
+      <div>
+        <h2 class="perfil-nombre">Cuenta de {{ usuarioNombre }}</h2>
+        <p class="perfil-correo">
+          <img src="assets/imagenes/email.png" class="correo-icono">
+          {{ usuarioEmail }}
+        </p>
+      </div>
     </div>
 
+    <!-- 🔥 BOTONES DENTRO DEL MISMO CARD -->
     <div class="perfil-botones">
-      <button class="btn-perfil primary" (click)="verActividades()">Ver Actividades</button>
       <button class="btn-perfil danger" (click)="borrarUsuario()">Eliminar usuario</button>
       <button class="btn-perfil secondary" (click)="cerrarSesion()">Cerrar sesión</button>
       <button class="btn-perfil secondary" [routerLink]="['/perfilEditar', usuarioId]">
@@ -114,13 +84,39 @@
     </div>
 
   </div>
-
 </div>
 
+<!-- Mis actividades -->
+<div class="perfil-wrapper">
+  <div class="perfil-card">
+    <h2 class="perfil-titulo">Mis Actividades</h2>
 
+    <div *ngIf="actividades.length > 0; else noActividades">
+      <div class="tabla-contenedor">
+        <table class="tabla-actividades">
+          <thead>
+            <tr>
+              <th>Actividad</th>
+              <th>Horario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let act of actividades">
+              <td>{{ act.actividad }}</td>
+              <td>{{ act.horario }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #noActividades>
+      <p class="no-actividades">No tienes actividades reservadas aún.</p>
+    </ng-template>
+  </div>
+</div>
 
 <!-- SECCIÓN FINAL SEVILLANEA -->
-
 
 <section class="bloque-final-sevillanea">
   <div class="bloque-container">
@@ -128,7 +124,8 @@
       <img src="assets/imagenes/sevillanea.png" alt="Logotipo Sevillanea" class="logo-final" />
       <p>Descubre, organiza y comparte experiencias únicas en Sevilla. No solo puedes disfrutar de las mejores
         actividades de ocio, sino
-        también convertirte en el organizador: publica tus propias propuestas y haz que otros usuarios vivan la ciudad a
+        también convertirte en el organizador: publica tus propias propuestas y haz que otros usuarios vivan la
+        ciudad a
         través de tu arte, tu pasión y tu visión.</p>
     </div>
 

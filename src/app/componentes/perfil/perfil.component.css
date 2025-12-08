@@ -6,7 +6,7 @@
   top: 0;
   width: 100%;
   height: 40px;
-  background-color: #111; /* negro sólido */
+  background-color: #111;
   z-index: 1100;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
   width: 100%;
   padding: 0 20px;
   display: flex;
-  justify-content: flex-end; /*esto sirve para ponerlo el icono de las redes sociales a la derecha   */
+  justify-content: flex-end;
 }
 
 .social-icons {
@@ -47,11 +47,11 @@
 }
 
 /* ------------------------------------------------------------
-    NAVBAR PRINCIPAL (MENÚ PRINCIPAL DE LA CABECERA)
+    NAVBAR PRINCIPAL
 ------------------------------------------------------------ */
 .navbar {
   position: fixed;
-  top: 40px; /* debajo del menú negro */
+  top: 40px;
   width: 100%;
   height: 100px;
   background-color: #ffab60;
@@ -72,19 +72,12 @@
   align-items: center;
 }
 
-/* ------------------------------------------------------------
-    LOGO IZQUIERDO
------------------------------------------------------------- */
 .logo-izquierda {
   height: 100px;
   width: 250px;
   object-fit: contain;
-  transition: none;
 }
 
-/* ------------------------------------------------------------
-   MENÚ DE NAVEGACIÓN
------------------------------------------------------------- */
 .navbar-menu {
   list-style: none;
   display: flex;
@@ -123,9 +116,6 @@
   width: 100%;
 }
 
-/* ------------------------------------------------------------
-   EFECTOS DE SCROLL
------------------------------------------------------------- */
 .hidden {
   opacity: 0;
   transform: translateY(-100%);
@@ -137,14 +127,13 @@
 }
 
 /* ------------------------------------------------------------
-   SECCION DE PERFIL CON FONDO
+   HEADER DE PERFIL
 ------------------------------------------------------------ */
-
 .ofertantes-header {
   position: relative;
-  height: 55vh; /* altura ideal para mostrar bien la imagen */
+  height: 55vh;
   background-image: url("../../../assets/imagenes/fondo_seccion.jpg");
-  background-attachment: fixed; /*efecto parallax */
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 40%;
@@ -163,17 +152,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* más transparente que antes */
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-/* Contenido centrado */
 .ofertantes-header-content {
   position: relative;
   z-index: 2;
 }
 
-/* texto mejor equilibrado y legible */
 .ofertantes-header-content h1 {
   color: white;
   font-size: 3.5rem;
@@ -184,7 +170,6 @@
   animation: fadeInDown 1.2s ease;
 }
 
-/* Animación de entrada */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -196,54 +181,43 @@
   }
 }
 
-/*  Responsive(para los móviles) */
 @media (max-width: 768px) {
   .ofertantes-header {
     height: 40vh;
     background-attachment: scroll;
     margin-top: 120px;
-    margin-bottom: 25px;
   }
-
   .ofertantes-header-content h1 {
     font-size: 2.3rem;
   }
 }
 
 /* ------------------------------------------------------------
-   DISEÑO ESTRUCTURA PERFIL
+   WRAPPER Y ESPACIADO GENERAL
 ------------------------------------------------------------ */
-
 .perfil-header-espaciado {
   width: 100%;
   height: 50px;
   background: #ffffff;
 }
+.perfil-header-espaciado.pequeño {
+  height: 20px !important;
+}
+
 .perfil-wrapper {
-  width: 100%;
-  min-height: 70vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-bottom: 120px; /* separación del footer */
-  animation: fadeIn 0.8s ease;
-  background: #ffffff; /* fondo limpio */
+  padding: 10px 0;
 }
 
 .perfil-card {
-  background: #ffffff;
-  width: 100%;
-  max-width: 900px;
-  padding: 45px 55px;
-  border-radius: 20px;
-  border: 2px solid #ffab6040;
-  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.12);
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-
-  /* centra todo visualmente */
-  margin-left: auto;
-  margin-right: auto;
+  width: 80%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 15px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .perfil-card:hover {
@@ -252,10 +226,11 @@
 }
 
 .perfil-titulo {
-  font-family: "Playfair Display", serif;
-  font-size: 2.4rem;
+  text-align: center;
   color: #b71c1c;
-  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .perfil-info p {
@@ -270,44 +245,48 @@
   color: #b71c1c;
 }
 
-/* Botones */
+/* ------------------------------------------------------------
+   BOTONES PERFIL
+------------------------------------------------------------ */
 .perfil-botones {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 600px;
 }
 
 .btn-perfil {
-  padding: 15px;
-  font-size: 1.05rem;
+  flex: 1 1 150px;
+  padding: 12px 20px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: 0.25s ease;
-  width: 100%;
+  transition: all 0.25s ease;
+  min-width: 140px;
+  text-align: center;
 }
 
-/* COLORES */
 .btn-perfil.primary {
   background: #ffab60;
   color: #fff;
 }
 .btn-perfil.primary:hover {
   background: #ff9430;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .btn-perfil.secondary {
-  background: #eeeeee;
+  background: #f5f5f5;
   color: #444;
 }
 .btn-perfil.secondary:hover {
-  background: #dcdcdc;
-  transform: scale(1.03);
+  background: #e0e0e0;
+  transform: scale(1.05);
 }
 
 .btn-perfil.danger {
@@ -316,10 +295,9 @@
 }
 .btn-perfil.danger:hover {
   background: #b71c1c;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* Animación inicial */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -331,20 +309,139 @@
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .perfil-card {
     max-width: 90%;
     padding: 30px;
   }
-
   .perfil-titulo {
     font-size: 2rem;
   }
+  .perfil-botones {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
-/* ================= FOOTER SEVILLANEA================= */
+/* ------------------------------------------------------------
+   PERFIL — ESTILO MODERNO
+------------------------------------------------------------ */
+.perfil-info-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.perfil-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+}
+
+.perfil-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.perfil-icono img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid #ffab60;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.perfil-icono img:hover {
+  transform: scale(1.05);
+}
+
+.perfil-nombre {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #b71c1c;
+  margin: 0 0 8px 0;
+}
+
+.perfil-correo {
+  font-size: 1.15rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.correo-icono {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .perfil-encabezado {
+    flex-direction: column;
+    text-align: center;
+  }
+  .perfil-nombre {
+    font-size: 1.8rem;
+  }
+  .perfil-icono img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ------------------------------------------------------------
+   TABLA MIS ACTIVIDADES
+------------------------------------------------------------ */
+.tabla-contenedor {
+  display: flex;
+  justify-content: center;
+}
+
+.tabla-actividades {
+  width: 85%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 1rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-actividades thead {
+  background: #ffab60;
+  color: white;
+}
+
+.tabla-actividades th,
+.tabla-actividades td {
+  padding: 15px;
+  text-align: center;
+}
+
+.tabla-actividades tbody tr:nth-child(even) {
+  background: #fff6ee;
+}
+
+.tabla-actividades tbody tr:hover {
+  background: #ffe3cc;
+  transition: 0.3s ease;
+}
+
+/* ------------------------------------------------------------
+   FOOTER SEVILLANEA
+------------------------------------------------------------ */
 .bloque-final-sevillanea {
   background: linear-gradient(180deg, #ffb776, #ff9f4a);
   border-top: 4px solid #c62828;
@@ -373,7 +470,6 @@
   filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Títulos de columna */
 .bloque-column h3 {
   font-size: 20px;
   font-family: "Playfair Display", serif;
@@ -382,7 +478,6 @@
   position: relative;
 }
 
-/* Línea decorativa bajo los títulos */
 .bloque-column h3::after {
   content: "";
   position: absolute;
@@ -394,7 +489,6 @@
   border-radius: 2px;
 }
 
-/* Listas */
 .bloque-column ul {
   list-style: none;
   padding: 0;
@@ -405,7 +499,6 @@
   margin-bottom: 10px;
 }
 
-/* ENLACES llamativos con animación */
 .bloque-column ul li a {
   text-decoration: none;
   color: #2c2c2c;
@@ -415,7 +508,6 @@
   transition: color 0.25s ease;
 }
 
-/* Subrayado animado */
 .bloque-column ul li a::after {
   content: "";
   position: absolute;
@@ -431,12 +523,10 @@
 .bloque-column ul li a:hover {
   color: #b71c1c;
 }
-
 .bloque-column ul li a:hover::after {
   width: 100%;
 }
 
-/* Textos del bloque final */
 .bloque-column p {
   margin: 6px 0;
   font-size: 15px;
@@ -444,8 +534,6 @@
   font-family: "Merriweather", serif;
   color: #3a3a3a;
 }
-
-/* ================= FOOTER BOTTOM (FINAL) ================= */
 
 footer.py-4 {
   background-color: #121212;
@@ -463,28 +551,23 @@ footer p {
   transition: 0.3s ease;
 }
 
-/* Efecto glow suave en hover */
 footer p:hover {
   opacity: 1;
   text-shadow: 0px 0px 8px rgba(255, 160, 122, 0.6);
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media (max-width: 768px) {
   .bloque-container {
     flex-direction: column;
   }
-
   .bloque-column {
     margin-bottom: 20px;
   }
 }
 
-
-/* ===================== BOTÓN HAMBURGUESA(cuando minimizo o para versión móvil no se desajuste) ===================== */
-
-/* Botón hamburguesa*/
+/* ------------------------------------------------------------
+   MENÚ HAMBURGUESA
+------------------------------------------------------------ */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -501,7 +584,6 @@ footer p:hover {
   transition: 0.3s ease;
 }
 
-/* Animación al abrir */
 .hamburger.activo span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -512,14 +594,10 @@ footer p:hover {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ===================== RESPONSIVE: menú hamburguesa ===================== */
 @media (max-width: 950px) {
-  /* Mostrar hamburguesa */
   .hamburger {
     display: flex;
   }
-
-  /* Menú se oculta por defecto */
   .navbar-menu {
     position: absolute;
     top: 100px;
@@ -532,8 +610,6 @@ footer p:hover {
     display: none;
     text-align: center;
   }
-
-  /* Cuando está abierto */
   .navbar-menu.abierto {
     display: flex;
   }
