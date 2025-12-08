@@ -164,9 +164,15 @@ export class DetalleOfertaComponent implements OnInit {
   }
 
   validarPlazas(group: FormGroup) {
-    const min = group.get('plazas_minimas')?.value;
-    const max = group.get('plazas_maximas')?.value;
-    return max >= min ? null : { plazasInvalidas: true };
+    const min = Number(group.get('plazas_minimas')?.value);
+    const max = Number(group.get('plazas_maximas')?.value);
+
+    // Solo validar si ambos son números válidos
+    if (!isNaN(min) && !isNaN(max)) {
+      return max >= min ? null : { plazasInvalidas: true };
+    }
+
+    return null; // No mostrar error si alguno está vacío o no es número
   }
 
   mostrarMensaje(texto: string) {
