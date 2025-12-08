@@ -4,10 +4,12 @@ import { UsuariosService } from '../../servicios/usuarios.service';
 import { RouterLink } from '@angular/router';
 import { Usuario } from '../../modelos/usuario';
 import { HostListener } from '@angular/core';
+import { OfertantesService } from '../../servicios/ofertantes.service';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-perfil',
-  imports: [RouterLink],
+  imports: [RouterLink, NgIf, NgFor],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css',
 })
@@ -46,12 +48,14 @@ export class PerfilComponent implements OnInit {
   usuarioNombre: string = '';
   usuarioEmail: string = '';
   mensaje: string = '';
+  actividades: any[] = [];
 
   menuAbierto: boolean = false;
 
   constructor(
     private router: Router,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private ofertantesService: OfertantesService
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +75,7 @@ export class PerfilComponent implements OnInit {
 
         // Actualizar localStorage con info nueva
         localStorage.setItem('usuario', JSON.stringify(usuarioServidor));
+        this.verActividades();
       },
       error: () => (this.mensaje = 'Error al cargar datos del usuario'),
     });
@@ -82,8 +87,30 @@ export class PerfilComponent implements OnInit {
   }
 
   verActividades() {
-    this.router.navigate(['/ofertantes']);
+    console.log('Id del user: ' + this.usuarioId);
+    if (!this.usuarioId) return;
+  
+    this.ofertantesService.actividadesUsuario(this.usuarioId).subscribe({
+
+      next: (res) => {
+
+        this.actividades = res;
+
+        console.log("Actividades usuario:", this.actividades);
+
+      },
+
+      error: () => {
+
+        this.mensaje = 'Error al obtener actividades';
+
+      },
+
+    });
+
   }
+
+ 
 
   borrarUsuario() {
     if (!confirm('¿Seguro que deseas eliminar tu cuenta?')) return;

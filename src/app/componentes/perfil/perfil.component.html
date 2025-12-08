@@ -71,6 +71,18 @@
   <div class="perfil-card">
 
     <h2 class="perfil-titulo">Mis Actividades</h2>
+    <div *ngIf="actividades.length > 0; else noActividades">
+      <ul>
+      <li *ngFor="let act of actividades">
+            {{ act.actividad }}
+            {{ act.horario }}
+      </li>
+      </ul>
+    </div>
+    
+    <ng-template #noActividades>
+    <p>No tienes actividades reservadas aún.</p>
+    </ng-template>
 
   </div>
 
