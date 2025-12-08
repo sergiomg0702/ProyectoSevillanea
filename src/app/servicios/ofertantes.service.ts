@@ -103,7 +103,7 @@ export class OfertantesService {
 
   inscribirActividad(usuario_id: number, actividad_id: number) {
     const param = JSON.stringify({
-      accion: 'InscribirActividad',
+      accion: 'inscribirActividad',
       usuario_id,
       actividad_id,
     });

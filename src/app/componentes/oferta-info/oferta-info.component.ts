@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { Ofertante } from '../../modelos/ofertante';
@@ -13,7 +13,7 @@ import jsPDF from 'jspdf';
   templateUrl: './oferta-info.component.html',
   styleUrl: './oferta-info.component.css',
 })
-export class OfertaInfoComponent {
+export class OfertaInfoComponent implements OnInit{
   ofertante: Ofertante | null = null;
   usuario: any = null;
 
