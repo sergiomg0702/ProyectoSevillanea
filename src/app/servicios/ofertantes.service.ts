@@ -14,9 +14,7 @@ export class OfertantesService {
 
   constructor(private http: HttpClient) {}
 
-  // ==========================
-  // LISTAR Y OBTENER
-  // ==========================
+  //Listar y obtener
 
   selectOfertantes() {
     const param = JSON.stringify({ accion: 'ListarOfertantes' });
@@ -28,9 +26,7 @@ export class OfertantesService {
     return this.http.post<Ofertante>(this.url, param);
   }
 
-  // ==========================
-  // AÑADIR
-  // ==========================
+  //Añadir
 
   anadirOfertante(ofertante: Ofertante) {
     const payload = {
@@ -56,9 +52,7 @@ export class OfertantesService {
     return this.http.post<{ result: string }>(this.url, param);
   }
 
-  // ==========================
-  // MODIFICAR
-  // ==========================
+  //Modificar
 
   modificaOfertante(ofertante: Ofertante) {
     const payload = {
@@ -85,9 +79,7 @@ export class OfertantesService {
     return this.http.post<{ result: string }>(this.url, param);
   }
 
-  // ==========================
-  // BORRAR
-  // ==========================
+  //Borrar Ofertante
 
   borraOfertante(ofertante: Ofertante) {
     const param = JSON.stringify({
@@ -97,9 +89,7 @@ export class OfertantesService {
     return this.http.post(this.url, param, { responseType: 'text' });
   }
 
-  // ==========================
-  // INSCRIBIRSE A ACTIVIDAD
-  // ==========================
+  //Funcion de inscripción de usuario la actividad
 
   inscribirActividad(usuario_id: number, actividad_id: number) {
     const param = JSON.stringify({
@@ -117,9 +107,8 @@ export class OfertantesService {
     return this.http.post<any[]>(this.url, param);
   }
 
-  // ==========================
-  // ANULAR RESERVA DE ACTIVIDAD
-  // ==========================
+  //Funcion que anula la reserva de la actividad
+
   anularInscripcion(usuario_id: number, actividad_id: number) {
     const param = JSON.stringify({
       accion: 'anularInscripcion',
