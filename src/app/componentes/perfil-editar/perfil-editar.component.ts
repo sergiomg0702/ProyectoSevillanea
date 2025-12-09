@@ -123,7 +123,7 @@ export class PerfilEditarComponent implements OnInit {
       // Verificar contraseña actual
       this.usuariosService.loginUsuario(email, passwordActual).subscribe({
         next: (res: any) => {
-          if (res.result === 'FAIL') {
+          if (!res || !res.id) {
             this.mensaje = 'Contraseña actual incorrecta';
             return;
           }

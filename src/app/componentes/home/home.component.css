@@ -632,7 +632,7 @@ footer p:hover {
 .navbar-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;  /* ESTA LÍNEA COLOCA LOGO A LA IZQ Y HAMBURGUESA A LA DERECHA */
+  justify-content: space-between; /* ESTA LÍNEA COLOCA LOGO A LA IZQ Y HAMBURGUESA A LA DERECHA */
   width: 100%;
   padding: 0 20px;
 }
@@ -656,8 +656,6 @@ footer p:hover {
 /* ===================== Responsive para los teléfonos(menú hamburguesa) ===================== */
 
 @media (max-width: 950px) {
-
-  
   .hamburger {
     display: flex;
   }

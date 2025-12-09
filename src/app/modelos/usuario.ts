@@ -2,5 +2,5 @@ export interface Usuario {
   id: number;
   username: string;
   email: string;
-  password?: string;  // solo para login/registro
+  password?: string; // solo para login/registro
 }

@@ -115,8 +115,7 @@ export class OfertaInfoComponent implements OnInit {
     console.log('USUARIO ID: ' + this.usuario.id);
 
     // Confirmación con el usuario antes de reservar
-    if (!confirm('¿Deseas reservar esta actividad? No hay vuelta atrás.'))
-      return;
+    if (!confirm('¿Deseas reservar esta actividad?')) return;
 
     // Llamamos al servicio de inscripción
     this.servicio.inscribirActividad(this.usuario.id, idActividad).subscribe({
@@ -266,7 +265,7 @@ export class OfertaInfoComponent implements OnInit {
     doc.setFontSize(12);
     doc.setTextColor(textoOscuro.r, textoOscuro.g, textoOscuro.b);
     doc.text(
-      `No dude en contactar con ${datos.actividad.nombreOfertante} ${datos.actividad.apellidosOfertante} al teléfono ${datos.actividad.telefono}.`,
+      `Cualquier consulta o incidencia ocasionada,no dude en contactar con ${datos.actividad.nombreOfertante} ${datos.actividad.apellidosOfertante} al teléfono ${datos.actividad.telefono}.`,
       25,
       y
     );
