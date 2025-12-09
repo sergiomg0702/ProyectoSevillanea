@@ -296,13 +296,12 @@ textarea {
   border-color: #e89248 !important;
 }
 
-/* ================= FOOTER SEVILLANEA================= */
+/* ================= FOOTER SEVILLANEA ================= */
 
 .bloque-final-sevillanea {
-  margin-top: 0 !important;
-  padding-top: 60px;
+  padding: 60px 20px;
   background: linear-gradient(180deg, #ffb776, #ff9f4a);
-  border-top: 4px solid #c62828;
+  border-top: 4px solid #b71c1c;
   font-family: "Merriweather", serif;
   color: #2c2c2c;
 }
@@ -311,23 +310,31 @@ textarea {
   max-width: 1400px;
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: nowrap;
 }
 
 .bloque-column {
-  flex: 1 1 240px;
-  min-width: 220px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.columna-logo {
+  max-width: 330px;
+}
+
+.columna-contacto p {
+  font-size: 16px;
 }
 
 .logo-final {
-  width: 190px;
-  margin-bottom: 15px;
-  filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.2));
+  width: 150px;
+  margin-bottom: 12px;
 }
 
-/* Títulos de columna */
+/* Títulos */
 .bloque-column h3 {
   font-size: 20px;
   font-family: "Playfair Display", serif;
@@ -336,7 +343,6 @@ textarea {
   position: relative;
 }
 
-/* Línea decorativa bajo los títulos */
 .bloque-column h3::after {
   content: "";
   position: absolute;
@@ -359,7 +365,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* ENLACES llamativos con animación */
 .bloque-column ul li a {
   text-decoration: none;
   color: #2c2c2c;
@@ -369,7 +374,6 @@ textarea {
   transition: color 0.25s ease;
 }
 
-/* Subrayado animado */
 .bloque-column ul li a::after {
   content: "";
   position: absolute;
@@ -390,7 +394,6 @@ textarea {
   width: 100%;
 }
 
-/* Textos del bloque final */
 .bloque-column p {
   margin: 6px 0;
   font-size: 15px;
@@ -399,39 +402,39 @@ textarea {
   color: #3a3a3a;
 }
 
-/* ================= FOOTER BOTTOM (FINAL) ================= */
+/* ================= FOOTER BOTTOM ================= */
 
-footer.py-4 {
-  background-color: #121212;
+.footer-bottom {
+  background: #121212;
   color: #f5f5f5;
-  padding: 25px 10px;
+  padding: 22px 0;
+  text-align: center;
   border-top: 3px solid #b71c1c;
 }
 
-footer p {
+.footer-bottom p {
   margin: 0;
-  font-size: 15.5px;
+  font-size: 15px;
   letter-spacing: 0.5px;
   font-family: "Playfair Display", serif;
   opacity: 0.9;
-  transition: 0.3s ease;
 }
 
-/* Efecto glow suave en hover */
-footer p:hover {
+.footer-bottom p:hover {
   opacity: 1;
   text-shadow: 0px 0px 8px rgba(255, 160, 122, 0.6);
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .bloque-container {
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 
-  .bloque-column {
-    margin-bottom: 20px;
+  .columna-logo {
+    max-width: 100%;
   }
 }
 

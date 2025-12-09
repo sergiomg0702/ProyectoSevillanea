@@ -147,16 +147,15 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover; /* ocupa todo el ancho */
-  background-position: center 40%; 
+  background-position: center 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-top: 130px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   overflow: hidden;
 }
-
 
 .ofertantes-header .overlay {
   position: absolute;
@@ -173,7 +172,6 @@
   position: relative;
   z-index: 2;
 }
-
 
 .ofertantes-header-content h1 {
   color: white;
@@ -324,7 +322,7 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, 0.3s ease;
 }
 
 /* Botón reservar */
@@ -584,6 +582,7 @@ footer p:hover {
 }
 
 /* ===================== RESPONSIVE: menú hamburguesa ===================== */
+
 @media (max-width: 950px) {
   /* Mostrar hamburguesa */
   .hamburger {
