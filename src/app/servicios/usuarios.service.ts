@@ -52,16 +52,6 @@ export class UsuariosService {
     );
   }
 
-  /*
-  modificarUsuario(usuario: Usuario) {
-    return this.http.post(this.url, {
-      accion: 'ModificaUsuario',
-      usuario,
-    });
-  }
-
-  */
-
   modificarUsuario(usuario: Usuario) {
     return this.http.post(this.url, {
       accion: 'ModificaUsuario',
